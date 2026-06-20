@@ -32,25 +32,29 @@ const MINISTRIES = [
     id: 1,
     title: "ทีมนมัสการและดนตรี",
     description: "นำพี่น้องเข้าสู่การทรงสถิตของพระเจ้าผ่านบทเพลงสรรเสริญและนมัสการที่เต็มเปี่ยมด้วยพลังวิญญาณ ทั้งรูปแบบร่วมสมัยและเพลงชีวิตคริสเตียน",
-    icon: <Music className="w-8 h-8 text-indigo-500" />
+    icon: <Music className="w-8 h-8 text-indigo-500" />,
+    href: "/worship"
   },
   {
     id: 2,
     title: "กลุ่มเซลล์ตามบ้าน",
     description: "กลุ่มย่อยเพื่อการหนุนใจ ศึกษาพระวจนะอย่างใกล้ชิด และดูแลชีวิตของพี่น้องสมาชิกในแต่ละพื้นที่ตลอดสัปดาห์",
-    icon: <Users className="w-8 h-8 text-emerald-500" />
+    icon: <Users className="w-8 h-8 text-emerald-500" />,
+    href: "/cell"
   },
   {
     id: 3,
     title: "พันธกิจเด็กและรวีวารศึกษา",
     description: "ปลูกฝังความเชื่อและรากฐานทางจริยธรรมให้กับเด็กๆ ผ่านกิจกรรม เกม และการเล่าเรื่องราวจากพระคัมภีร์ที่สนุกสนาน",
-    icon: <Heart className="w-8 h-8 text-rose-500" />
+    icon: <Heart className="w-8 h-8 text-rose-500" />,
+    href: "/nextgen"
   },
   {
     id: 4,
     title: "พันธกิจการศึกษาและฝึกอบรม",
     description: "จัดชั้นเรียนพระคัมภีร์และหลักสูตรสร้างสาวก เพื่อเตรียมความพร้อมให้สมาชิกเติบโตและออกไปรับใช้ได้อย่างเกิดผล",
-    icon: <BookOpen className="w-8 h-8 text-amber-500" />
+    icon: <BookOpen className="w-8 h-8 text-amber-500" />,
+    href: "/bible"
   }
 ];
 
@@ -91,10 +95,10 @@ export default function ChurchWebsite() {
           <div className="flex items-center gap-4">
             <button 
               onClick={toggleTheme}
-              className="p-2 rounded-full hover:bg-slate-100 transition-colors cursor-pointer"
+              className="p-2 rounded-full hover:bg-blue-900 transition-colors cursor-pointer"
               aria-label="Toggle Dark Mode"
             >
-              {isDarkMode ? <Sun className="w-5 h-5 text-slate-600" /> : <Moon className="w-5 h-5 text-slate-600" />}
+              {isDarkMode ? <Sun className="w-5 h-5 text-white" /> : <Moon className="w-5 h-5 text-white" />}
             </button>
             <a href="#contact" className="px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded-md hover:bg-indigo-700 transition-colors">
               ติดต่อเรา
@@ -194,18 +198,20 @@ export default function ChurchWebsite() {
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 cursor-pointer">
               {MINISTRIES.map((ministry) => (
-                <div 
-                  key={ministry.id} 
-                  className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm hover:shadow-md transition-transform duration-700 hover:scale-105"
-                >
-                  <div className="mb-4 p-3 bg-slate-50 dark:bg-slate-800 inline-block rounded-xl">
-                    {ministry.icon}
+                <Link href={ministry.href} key={ministry.href} className="flex">
+                  <div 
+                    key={ministry.id} 
+                    className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm hover:shadow-md transition-transform duration-700 hover:scale-105"
+                  >
+                    <div className="mb-4 p-3 bg-slate-50 dark:bg-slate-800 inline-block rounded-xl">
+                      {ministry.icon}
+                    </div>
+                    <h3 className="text-xl font-bold mb-3">{ministry.title}</h3>
+                    <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                      {ministry.description}
+                    </p>
                   </div>
-                  <h3 className="text-xl font-bold mb-3 cursor-text">{ministry.title}</h3>
-                  <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed cursor-text">
-                    {ministry.description}
-                  </p>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
