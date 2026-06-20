@@ -36,39 +36,45 @@ const WORSHIP_GALLERY = [
 const TEAM_MEMBERS = [
   {
     id: 1,
-    name: "พี่จอห์น",
+    name: "เขต",
+    fullname: "ชนะพนธ์ ตรีรัตนานุรักษ์",
     role: "Worship Leader",
-    image: "/team-1.jpg",
+    image: "/worship/khet-.jpg",
   },
   {
     id: 2,
-    name: "น้องซาร่า",
-    role: "Vocalist",
-    image: "/team-2.jpg",
+    name: "โตโต้",
+    fullname: "พัทธดนท์ แก้วเมือง",
+    role: "Drummer / Keyboardist",
+    image: "/worship/toto.jpeg",
   },
   {
     id: 3,
-    name: "ไบรท์",
-    role: "Keyboardist / Music Director",
-    image: "/team-3.jpg",
+    name: "เนย",
+    fullname: "กนกภรณ์ ช่วยไทย",
+    role: "Pianist / Keyboardist",
+    image: "/worship/noey.jpeg",
   },
   {
     id: 4,
-    name: "พี่มาร์ค",
-    role: "Guitarist",
+    name: "ทีน",
+    fullname: "ธนภัทร เพชรพันธ์",
+    role: "Bassist / Guitarist",
     image: "/team-4.jpg",
   },
   {
     id: 5,
-    name: "เจมส์",
-    role: "Drummer",
+    name: "มุก",
+    fullname: "เพชรนภา แดงบรรจง",
+    role: "Junior Drummer",
     image: "/team-5.jpg",
   },
   {
     id: 6,
-    name: "แอนนา",
-    role: "Bassist",
-    image: "/team-6.jpg",
+    name: "ต้น",
+    fullname: "ชุติพนธ์ ตรีรัตนานุรักษ์",
+    role: "Counselor / Keyboardist",
+    image: "/worship/ton.jpg",
   },
 ];
 
@@ -210,7 +216,8 @@ export default function WorshipPage() {
                 </div>
                 {/* ข้อมูล */}
                 <div className="text-center mt-auto">
-                  <h3 className="text-xl font-bold mb-1 text-slate-900 dark:text-white">{member.name}</h3>
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white">{member.name}</h3>
+                  <h3 className="text-xl font-semi-bold mb-1.5 text-slate-900 dark:text-white">{member.fullname}</h3>
                   <span className="inline-block px-3 py-1 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 text-sm font-medium rounded-full">
                     {member.role}
                   </span>
